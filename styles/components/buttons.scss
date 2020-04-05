@@ -1,0 +1,129 @@
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  border: 0;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+  appearance: none;
+}
+
+// Buttons =====================================================================
+
+$colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger
+);
+
+@mixin btn_underline_colors {
+  @each $name, $hex in $colors {
+    &.btn-underline-#{$name} {
+      &:after {
+        background: $hex;
+      }
+    }
+  }
+}
+
+// Mixin for Underlined buttons
+@mixin btn_underline {
+  &.btn-underline {
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0;
+    position: relative;
+    color: $black;
+    text-transform: none;
+    padding: 7px 2px;
+    border: none;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent !important;
+      border-color: transparent !important;
+      border: none;
+      box-shadow: none;
+      &:after {
+        // width: calc(100% + 4px);
+        // left: -2px;
+        transform: scaleX(1.06) translateX(-47%);
+        transition: ease-in-out transform .3s;
+      }
+    }
+    &:after {
+      content: '';
+      height: 5px;
+      width: calc(100% - 4px);
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: scaleX(1) translateX(-50%);
+      transition: ease-in-out transform .3s;
+      bottom: -5px;
+    }
+  }
+  @include btn_underline_colors;
+}
+
+
+button,
+.btn {
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+.btn {
+  font-family: $font-family-sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3.75px;
+  line-height: 20px;
+  padding: 20px 40px;
+  > .icon {
+    background-size: 1rem;
+    vertical-align: middle;
+    margin: 0 .25rem;
+  }
+  &.btn-icon {
+    > .icon {
+      margin-right: -10px;
+    }
+  }
+  &.btn-primary {
+    color: $white;
+  }
+  &.btn-sm {
+    // font-size: .8em;
+    // line-height: 1.2;
+    padding: 15px 20px;
+  }
+  &.btn-lg {
+    // font-size: 1.2em;
+    // line-height: 1.2;
+    padding: 25px 50px;
+  }
+  &.btn-link {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 0 5px;
+    letter-spacing: normal;
+    text-transform: none;
+    > .icon {
+      margin: 0 .25rem;
+    }
+  }
+  @include btn_underline;
+
+}

@@ -1,0 +1,95 @@
+<section id="contact" class="container pt-75 d-md-flex flex-md-row w-100 mt-md-5 pl-md-3 mt-lg-0 justify-content-start align-items-space-between position-relative">
+  <div class="mr-lg-3 pt-3 px-0 pt-lg-5 text-left overflow-hidden">
+    <div class="my-3 py-3 feature-block-copy contact-form form-vertical">
+      {%- assign formId = 'ContactPage_Form' -%}
+      {% form 'contact', id: formId %}
+        <header>
+          {% if page.content.size > 0 %}
+            <div class="rte">
+              {{ page.content }}
+            </div>
+          {% else %}
+            <h1>Get in touch.</h1>
+            <p>We’d love to hear from you and discuss your workspace more. Fill out this form below and we’ll get back to you promptly.</p>
+          {% endif %}
+          {% if form.posted_successfully? %}
+            <p class="form-success">
+              {{ 'contact.form.post_success' | t }}
+            </p>
+          {% endif %}
+          {% if form.errors %}
+            {{ form.errors | default_errors }}
+          {% endif %}
+        </header>
+
+        <!-- <label for="ContactFormName">{{ 'contact.form.name' | t }}</label> -->
+        <input type="text"
+          name="contact[name]"
+          id="{{ formId }}_Name"
+          class="form-control mb-3 mx-0"
+          placeholder="{{ 'contact.form.name' | t }}"
+          value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+
+        <!-- <label for="ContactFormEmail">{{ 'contact.form.email' | t }}</label> -->
+        <input type="email"
+          name="contact[email]"
+          id="{{ formId }}_Email"
+          class="form-control mb-3 mx-0{%- if form.errors contains 'email' -%} input--error{%- endif -%}"
+          placeholder="{{ 'contact.form.email' | t }}"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-required="true"
+          {%- if form.errors contains 'email' -%}
+            aria-invalid="true"
+            aria-describedby="{{ formId }}_Email-error"
+          {%- endif -%}>
+          {%- if form.errors contains 'email' -%}
+            <span id="{{ formId}}_Email-error" class="input-error-message">
+              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+              {% include 'icon-error' %}
+              <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+            </span>
+          {%- endif -%}
+
+        <!-- <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label> -->
+        <input type="tel"
+          name="contact[phone]"
+          id="{{ formId }}_Phone"
+          class="form-control mb-3 mx-0"
+          placeholder="{{ 'contact.form.phone' | t }}"
+          value="{% if form[phone] %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          pattern="[0-9\-]*">
+
+          <div class="custom-control custom-select mb-3 mx-0">
+            <select
+              id="{{ formId }}_Subject"
+              name="contact[{{ 'contact.form.subject' | t }}]">
+              <option value="0">{% if form[subject] %}{{ form[subject] }}{% endif %}</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Custom Order">Custom Order</option>
+              <option value="Pre-Order Signup">Pre-Order Signup</option>
+            </select>
+          </div>
+
+        <!-- <label for="ContactFormMessage">{{ 'contact.form.message' | t }}</label> -->
+        <textarea rows="10"
+          name="contact[body]"
+          id="{{ formId }}_Message"
+          class="form-control mb-3 mx-0"
+          placeholder="{{ 'contact.form.message' | t }}">
+          {%- if form.body -%}
+            {{- form.body -}}
+          {%- endif -%}
+        </textarea>
+
+        <input type="submit" class="btn btn-solid btn-primary my-3 px-5" value="{{ 'contact.form.send' | t }}">
+
+      {% endform %}
+    </div>
+  </div>
+  <div class="text-right feature-block-media">
+    <!-- <img src="{{ 'kv-desk-profile-left.png' | asset_url }}" alt="Twofold Working Wall" class="h-100 w-auto" /> -->
+  </div>
+</section>

@@ -1,0 +1,170 @@
+form {
+  margin: 0;
+}
+
+a,
+area,
+button,
+[role='button'],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+input,
+textarea,
+select {
+  font-size: 1.6rem;
+  max-width: 100%;
+  border: 1px solid $color-border;
+  border-radius: 0;
+
+  &[disabled] {
+    border-color: $color-disabled-border;
+    background-color: $color-disabled;
+    cursor: default;
+  }
+}
+
+button,
+input[type='submit'],
+label[for] {
+  cursor: pointer;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+// Force option color (affects IE only)
+option {
+  background-color: $color-body;
+  color: $color-body-text;
+}
+
+.input-error {
+  border-color: $color-error;
+  background-color: $color-error-bg;
+  color: $color-body-text;
+}
+
+
+// Forms =======================================================================
+
+.form-control {
+  box-shadow: none;
+  border-width: 4px;
+  border-radius: 0;
+  color: $black;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -.51px;
+  padding: 20px 25px;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  max-width: 380px;
+  height: auto;
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.form-group {
+  .checkbox,
+  .radio {
+    position: relative;
+    margin: 1rem 0;
+    height: $input-size + $border-size;
+    > [type="radio"],
+    > [type="checkbox"] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      + label {
+        padding-left: $input-size * 1.75;
+        line-height: $input-size + $border-size;
+        color: $gray-400;
+        margin: 0;
+        &:before {
+          content: '';
+          width: $input-size + $border-size; // - ($border-size * 2);
+          height: $input-size + $border-size; // - ($border-size * 2);
+          border: 4px solid $gray-100;
+          position: absolute;
+          left:0;
+        }
+      }
+    }
+
+    // Radio button specific styles
+    > [type="radio"] {
+      + label {
+        &:before,
+        &:after {
+          border-radius: $input-size + $border-size;
+        }
+        &:after {
+          background-color: transparent;
+          content: '';
+          width: $input-size - ($border-size * 2);
+          height: $input-size - ($border-size * 2);
+          position: absolute;
+          left: $border-size * 1.5;
+          top: $border-size * 1.5;
+        }
+      }
+    }
+
+  }
+
+
+  // Checked styles
+  .checkbox,
+  .radio {
+    // Checkbox specific
+    > [type="checkbox"] {
+      &:checked {
+        + label {
+          color: $black;
+          &:before {
+            border-color: $black;
+            content: '\00d7';
+            font-size: $input-size;
+            line-height: $input-size - ($border-size * 3);
+            text-align: center;
+          }
+          &:after {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+
+    // Radio specific
+    > [type="radio"] {
+      &:checked {
+        + label {
+          color: $black;
+          &:before {
+            border-color: $black;
+          }
+          &:after {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+.clearfix {
+  @include clearfix;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.js-focus-hidden:focus {
+  outline: none;
+}
+
+.label-hidden {
+  @include visually-hidden;
+
+  // No placeholders, so force show labels
+  .no-placeholder & {
+    @include visually-shown;
+  }
+}
+
+.visually-shown {
+  @include visually-shown;
+}
+
+// Only show when JS is not supported
+.no-js:not(html) {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+// Only show when JS is supported
+.js {
+  .no-js & {
+    display: none;
+  }
+}
+
+// Only show when browser cookies are not supported
+.supports-no-cookies:not(html) {
+  display: none;
+
+  html.supports-no-cookies & {
+    display: block;
+  }
+}
+
+// Only show when browser cookies are supported
+.supports-cookies {
+  html.supports-no-cookies & {
+    display: none;
+  }
+}
+
+// Skip to content button
+// Overrides .visually-hidden when focused
+.skip-link:focus {
+  @include visually-shown(absolute);
+  z-index: 10000;
+  padding: $grid-gutter / 2;
+  background-color: $color-body;
+  color: $color-body-text;
+  transition: none;
+}
+
+.hide {
+  /* stylelint-disable declaration-no-important */
+  display: none !important;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.border-top { border-top: 1px solid $gray-300; }
+.border-bottom { border-bottom: 1px solid $gray-300; }
+
+.border {
+
+  &.border-2 {
+    border-width: 2px !important;
+  }
+}
+
+.box-shadow { box-shadow: 0 10px 25px 3px rgba($black,0.14);; }
+
+.bg-gray {
+  background-color: $gray-300;
+}
+.bg-gray-light {
+  background-color: $gray-100;
+}
+.bg-secondary {
+  background-color: $secondary;
+}
+.bg-primary {
+  background-color: $primary;
+}
+
+.flex-equal > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden { overflow: hidden; }
+
+// @media (min-width: 1200px) {
+//   .h-100 {
+//     height: 100%;
+//   }
+// }
+@media (max-width: 1199px) {
+  .h-100 {
+    &.w-auto {
+      height: auto !important;
+      width: 100% !important;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+#contact {
+  .form-container {
+    max-width: 510px;
+    .bg-image {
+      height: 100%;
+      width: 100%;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    &.container {
+      padding-left: 0;
+      max-width: 80%;
+    }
+    .bg-image {
+      top: 0;
+      // right: -1rem;
+      // z-index: -1;
+      // width: auto;
+      img {
+        // max-height: 700px;
+      }
+    }
+  }
+  @media (min-width:1024px) {
+    &.container {
+      max-width: 1000px;
+    }
+  }
+}

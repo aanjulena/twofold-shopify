@@ -1,0 +1,162 @@
+// Variables ===================================================================
+//
+// Color system
+//
+
+$white:    #fff !default;
+$gray-100: #f3f3f3 !default;
+$gray-200: #f8f8f8 !default;
+$gray-300: #eeeeee !default;
+$gray-400: #ced4da !default;
+$gray-500: #a2a2a2 !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #30302e !default;
+$gray-900: #231f20 !default;
+$black:    #000 !default;
+
+$blue:    #2780e3 !default;
+$indigo:  #6610f2 !default;
+$purple:  #613d7c !default;
+$pink:    #e83e8c !default;
+$red:     #ff0039 !default;
+$orange:  #f27654 !default;
+$yellow:  #ff7518 !default;
+$green:   #3fB618 !default;
+$teal:    #20c997 !default;
+$cyan:    #9954bb !default;
+
+$primary:       $orange !default;
+$secondary:     $gray-800 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
+
+// Options
+
+$enable-rounded: false !default;
+
+// Body
+
+$body-color:    $black !default;
+
+// Fonts
+
+$font-family-sans-serif: "Radnika-Regular", "Libre Franklin", "Noto Sans", "Source Sans Pro", "Lato", "Helvetica Neue", Helvetica, Calibri, Candara, Arial, sans-serif !default;
+
+$font-size-base: 0.9375rem !default;
+
+$headings-font-family: "Radnika-Bold", $font-family-sans-serif;
+
+$headings-font-weight:   700 !default;
+
+// Components
+
+// $border-width:                4px !default;
+
+$border-radius:               3px !default;
+$border-radius-lg:            0px !default;
+$border-radius-sm:            0px !default;
+
+// Forms
+
+$input-border-color:                    $gray-100 !default;
+
+$input-focus-border-color:              $gray-500 !default;
+
+$input-size:  30px;
+$border-size: 4px;
+
+// Navbar
+
+$navbar-dark-hover-color:           $primary !default;
+
+$navbar-light-hover-color:          $primary !default;
+$navbar-light-active-color:         $primary !default;
+
+$navbar-dark-color:                 $white !default;
+$navbar-light-color:                $black !default;
+
+
+// Alerts
+
+$alert-border-width:                0 !default;
+
+// Progress bars
+
+$progress-height:               0.5rem !default;
+
+// Text colors
+$color-body-text: $black;
+
+// Background colors
+$color-body: $white;
+
+// Placeholders
+$placeholder-color-foreground: #161d25;
+$placeholder-color-background: #f9fafb;
+
+// Other colors
+$color-accent: var(--color-accent);
+$color-border: var(--color-border);
+
+// Helper colors for form error states
+$color-disabled: #000000;
+$color-disabled-border: #000000;
+$color-error: #ff6d6d;
+$color-error-bg: #ffffff;
+$color-success: #000000;
+$color-success-bg: #000000;
+
+// Typography
+$font-heading: $headings-font-family;
+$font-body: $font-family-sans-serif;
+$font-body-weight: 400;
+$font-body-style: normal;
+$font-body-bold-weight: $headings-font-weight;
+
+// Transitions
+$transition-duration: 250ms;
+$transition-timing: ease-in-out;
+
+// Grid
+$grid-medium: 46.85em;
+$grid-large: 61.85em;
+$grid-widescreen: 87.5em;
+$grid-max-width: 73.75em;
+$grid-gutter: 30px;
+
+// Breakpoints used with the media-query mixin
+$small: 'small';
+$medium: 'medium';
+$medium-down: 'medium-down';
+$medium-up: 'medium-up';
+$large: 'large';
+$large-down: 'large-down';
+$large-up: 'large-up';
+$widescreen: 'widescreen';
+
+$breakpoints: (
+  $small '(max-width: #{$grid-medium - 1})',
+  $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
+  $medium-down '(max-width: #{$grid-large - 1})',
+  $medium-up '(min-width: #{$grid-medium})',
+  $large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})',
+  $large-down '(max-width: #{$grid-widescreen - 1})',
+  $large-up '(min-width: #{$grid-large})',
+  $widescreen '(min-width: #{$grid-widescreen})'
+);

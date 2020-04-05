@@ -1,0 +1,95 @@
+header.page-header {
+
+  &.index {
+    height: 990px;
+    .container {
+      @media (max-width:767px) {
+        max-width: 100%;
+        padding: 0;
+        // background-image: url('{{ "kv-header-hero.png" | asset_url }}');
+        // background-size: contain;
+        // background-position: right 92%;
+        // background-repeat: no-repeat;
+      }
+      @media (max-width:520px) {
+        // background-position: 0 15vw;
+        padding-top: 65%;
+      }
+    }
+    .hero-image {
+      bottom: 30px;
+      z-index: 0;
+      right: 0;
+      z-index: 0;
+      display: none;
+      @media (min-width:767px) {
+
+      }
+      @media (min-width:768px) {
+        left: 25%;
+        display: block;
+      }
+      @media (min-width:1200px) {
+        left: auto;
+      }
+    }
+    .text-left {
+      z-index: 1;
+      > .inner {
+        max-width: 450px;
+      }
+
+      @media (max-width: 767px) {
+        margin: 20% 0 0 3rem;
+        > div,
+        > .inner {
+          max-width: 90%;
+        }
+      }
+      @media (max-width: 520px) {
+        > .inner {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  &.product-page,
+  &.plaza-page,
+  &.wall-page {
+    height: 860px;
+    .inner {
+      max-width: 500px;
+      h3 {
+        margin: 23px 0;
+      }
+      .btn {
+        max-width: 230px;
+        margin:0 auto 1rem;
+        @media (min-width:460px) {
+          padding-left: 20px;
+          padding-right: 20px;
+          margin: 0;
+          + .btn {
+            margin-left: 11px;
+          }
+        }
+      }
+      @media (max-width:767px) {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width:767px) {
+      height: auto;
+      .hero-copy,
+      .hero-media {
+        width: 100%;
+        max-width: 100%;
+      }
+      .hero-copy {
+        margin-bottom: 75px;
+      }
+    }
+  }
+}

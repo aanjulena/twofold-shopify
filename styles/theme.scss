@@ -1,0 +1,53 @@
+@charset 'UTF-8';
+
+/**
+ * Twofold Spaces | Built with Themekit
+ */
+// @import './static/normalize';
+
+@import './variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+// @import "./static/bootstrap";
+
+// Settings
+// @import './variables';
+
+// Tools
+@import './tools/mixins';
+@import './tools/functions';
+
+// Core
+@import './core/forms';
+@import './core/helpers';
+@import './core/layout';
+@import './core/media';
+@import './core/responsive-tables';
+@import './core/rte';
+@import './core/typography';
+
+// Components
+@import './components/icons';
+@import './components/buttons';
+@import './components/header';
+@import './components/footer';
+@import './components/navs';
+@import './components/modal';
+// @import './components/hero-banner';
+
+@import './components/placeholders';
+@import './components/responsive-images';
+// @import './components/address-forms';
+
+// Sections
+@import './sections/contact-form';
+@import './sections/feature-blocks';
+@import './sections/slideshow';
+@import './sections/hero';
+// @import './sections/blog-posts';
+// @import './sections/collection-list';
+// @import './sections/featured-collection';
+// @import './sections/image-with-text';
+
+// Templates
+// @import './templates/gift_card';
+// @import './templates/product';

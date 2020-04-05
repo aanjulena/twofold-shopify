@@ -1,0 +1,125 @@
+// Navbar ======================================================================
+.site-header {
+  &.navbar {
+    padding: 1rem 3rem;
+    z-index: 10;
+    width: 100%;
+    padding: 1rem 2rem;
+    @media (min-width: 768px) {
+      padding: 1rem 3rem;
+    }
+    &.navbar-transparent {
+      background: transparent;
+      @media (min-width:768px) {
+        padding: 50px 60px;
+      }
+    }
+    &:not(.navbar-transparent) {
+      background-color: rgba($white,.85);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+  }
+  .nav-link {
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    font-size: 16px;
+    line-height: 20px;
+    &:hover {
+      #desktop-1376 {
+        fill: $primary;
+      }
+    }
+  }
+
+  @media (max-width:767px) {
+    .navbar-toggler {
+      border: none;
+      z-index: 10;
+      color: $black;
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      .icon {
+        transition: opacity .3s;
+      }
+      &:focus,
+      &:hover,
+      &:active {
+        outline: none;
+      }
+    }
+    .navbar-collapse {
+      background-color: rgba($black,.75);
+      border-radius: 0 0 0 3px;
+      color: $white;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5rem 5rem 2rem;
+      width:100%;
+      max-width: 400px;
+      &:not(.show) {
+        + .navbar-toggler {
+          .icon {
+            transition: opacity .3s;
+            &.menu {
+              opacity: 1;
+            }
+            &.close {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+          }
+        }
+      }
+      &.show {
+        + .navbar-toggler {
+          .icon {
+            &.menu {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+            &.close {
+              opacity: 1;
+            }
+          }
+        }
+        z-index: 1;
+
+        .nav-link {
+          color: $white;
+          &:active,
+          &:hover,
+          &:focus {
+            &,
+            &.active {
+              color: $primary;
+            }
+          }
+          #desktop-1376 {
+            fill: $white;
+          }
+        }
+      }
+    }
+
+    &.navbar {
+      &:not(.navbar-transparent) {
+        .navbar-toggler {
+          top: 1rem;
+        }
+        .navbar-collapse {
+          &.show {
+            padding-top: 3.5rem;
+            + .navbar-toggler {
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

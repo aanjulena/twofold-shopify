@@ -1,0 +1,213 @@
+<section id="design" class="feature-block d-flex w-100  mt-lg-5 pl-lg-3 flex-lg-row flex-column justify-space-between align-items-center">
+  <div class="pb-3 px-3 px-lg-5 text-left overflow-hidden order-2 order-lg-1">
+    <div class="feature-block-copy mx-auto mx-lg-0">
+      {% if section.settings.subheading != '' %}
+        <h5 class="text-primary">{{ section.settings.subheading }}</h5>
+      {% endif %}
+      {% if section.settings.heading != '' %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.desc != '' %}
+        <p>{{ section.settings.desc }}</p>
+      {% endif %}
+      {% if section.settings.link %}
+        <a class="btn btn-underline btn-underline-primary" href="{{ section.settings.link }}" title="{{ section.settings.button_text }}">{{ section.settings.button_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="text-left overflow-hidden feature-block-media order-1 order-lg-2 mt-5 mt-lg-0 mb-5 mb-lg-0 pb-4">
+    {%- if section.blocks.size > 0 -%}
+    {%- assign first_block = section.blocks[0] -%}
+    <div id="gallerySlider" class="carousel slide w-100" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#gallerySlider" data-slide-to="0" class="active"></li>
+        {%- if section.blocks.size >= 2 -%}
+        <li data-target="#gallerySlider" data-slide-to="1"></li>
+        {% endif %}
+        {%- if section.blocks.size >= 3 -%}
+        <li data-target="#gallerySlider" data-slide-to="2"></li>
+        {% endif %}
+        {%- if section.blocks.size >= 4 -%}
+        <li data-target="#gallerySlider" data-slide-to="3"></li>
+        {% endif %}
+        {%- if section.blocks.size >= 5 -%}
+        <li data-target="#gallerySlider" data-slide-to="4"></li>
+        {% endif %}
+      </ol>
+      <div class="carousel-inner">
+        {%- for block in section.blocks -%}
+          {%- assign block_image = block.settings.image -%}
+          <div class="carousel-item {% if forloop.first %} active{% endif %}">
+            <img src="{{ block_image | img_url: '800x800' }}" class="d-block w-100 lazyload{% unless forloop.first %} lazypreload{% endunless %}" alt="{{ block_image.alt | escape }}" />
+          </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#gallerySlider" role="button" data-slide="prev">
+        <span class="icon prev white" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#gallerySlider" role="button" data-slide="next">
+        <span class="icon next white" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": {
+    "da": "Diasshow",
+    "de": "Slideshow",
+    "en": "Slideshow",
+    "es": "Diapositivas",
+    "fi": "Diaesitys",
+    "fr": "Diaporama",
+    "hi": "स्लाइडशो",
+    "it": "Presentazione",
+    "ja": "スライドショー",
+    "ko": "슬라이드 쇼",
+    "nb": "Lysbildefremvisning",
+    "nl": "Diavoorstelling",
+    "pt-BR": "Apresentação de slides",
+    "pt-PT": "Apresentação de diapositivos",
+    "sv": "Bildspel",
+    "th": "สไลด์โชว์",
+    "zh-CN": "幻灯片",
+    "zh-TW": "素材輪播"
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Small Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Large Heading"
+    },
+    {
+      "type": "text",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "The text shown in the button link."
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button Link",
+      "info": "A link, either an anchor link on this page or another page."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": {
+        "da": "Billeddias",
+        "de": "Foto-Slide",
+        "en": "Image slide",
+        "es": "Diapositiva de imagen",
+        "fi": "Kuvadia",
+        "fr": "Diapositive (image)",
+        "hi": "इमेज स्लाइड",
+        "it": "Slide immagine",
+        "ja": "画像スライド",
+        "ko": "이미지 슬라이드",
+        "nb": "Lysbilde",
+        "nl": "Afbeelding dia",
+        "pt-BR": "Slide de imagem",
+        "pt-PT": "Diapositivo de imagem",
+        "sv": "Bild i bildspel",
+        "th": "สไลด์รูปภาพ",
+        "zh-CN": "图片幻灯片",
+        "zh-TW": "圖片投影片"
+      },
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "da": "Billede",
+            "de": "Foto",
+            "en": "Image",
+            "es": "Imagen",
+            "fi": "Kuva",
+            "fr": "Image",
+            "hi": "इमेज",
+            "it": "Immagine",
+            "ja": "画像",
+            "ko": "이미지",
+            "nb": "Bilde",
+            "nl": "Afbeelding",
+            "pt-BR": "Imagem",
+            "pt-PT": "Imagem",
+            "sv": "Bild",
+            "th": "รูปภาพ",
+            "zh-CN": "图片",
+            "zh-TW": "圖片"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "da": "Diasshow",
+        "de": "Slideshow",
+        "en": "Slideshow",
+        "es": "Diapositivas",
+        "fi": "Diaesitys",
+        "fr": "Diaporama",
+        "hi": "स्लाइडशो",
+        "it": "Presentazione",
+        "ja": "スライドショー",
+        "ko": "슬라이드 쇼",
+        "nb": "Lysbildefremvisning",
+        "nl": "Diavoorstelling",
+        "pt-BR": "Apresentação de slides",
+        "pt-PT": "Apresentação de diapositivos",
+        "sv": "Bildspel",
+        "th": "สไลด์โชว์",
+        "zh-CN": "幻灯片",
+        "zh-TW": "素材輪播"
+      },
+      "category": {
+        "da": "Billede",
+        "de": "Foto",
+        "en": "Image",
+        "es": "Imagen",
+        "fi": "Kuva",
+        "fr": "Image",
+        "hi": "इमेज",
+        "it": "Immagine",
+        "ja": "画像",
+        "ko": "이미지",
+        "nb": "Bilde",
+        "nl": "Afbeelding",
+        "pt-BR": "Imagem",
+        "pt-PT": "Imagem",
+        "sv": "Bild",
+        "th": "รูปภาพ",
+        "zh-CN": "图片",
+        "zh-TW": "圖片"
+      },
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
