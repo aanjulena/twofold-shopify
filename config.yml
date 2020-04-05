@@ -1,0 +1,44 @@
+development:
+  password: 82c2e864ccb9079bd2da62ca3d208d95
+  theme_id: "94872109191"
+  store: twofold-spaces.myshopify.com
+  # timeout: 60s
+  ignore_files:
+    - "*.gif"
+    - "*.jpg"
+    - config/settings_data.json
+    - node_modules/*
+    - .DS_Store
+test:
+  password: 82c2e864ccb9079bd2da62ca3d208d95
+  theme_id: "94555635847"
+  store: twofold-spaces.myshopify.com
+  # proxy: http://localhost:3000
+  ignore_files:
+    - "*.gif"
+    - "*.jpg"
+    - config/settings_data.json
+    - node_modules/*
+    - .DS_Store
+production:
+  password: 82c2e864ccb9079bd2da62ca3d208d95
+  theme_id: "93005709447"
+  store: twofold-spaces.myshopify.com
+  timeout: 60s
+  readonly: true
+# test:
+#   password: 82c2e864ccb9079bd2da62ca3d208d95
+#   theme_id: "789"
+#   store: twofold-spaces.myshopify.com
+#   ignores: ignore.txt
+#
+# https://twofold-spaces.myshopify.com/admin/themes/93686694023/editor
+
+# Twofold debut child theme
+# https://twofold-spaces.myshopify.com/admin/themes/93005709447/editor
+
+# Hulkapps test theme
+# 93129310343
+
+# Copy of Current 3/31 @ 6:15pm
+# 94555635847
